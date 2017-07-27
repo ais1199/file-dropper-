@@ -4,8 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
-#include <string>
-#include <cstring>
+//#include <cstring>
 //#include <cstdlib>
 //#include <cassert>
 
@@ -20,7 +19,7 @@ public:
     ~fm();
 private:
     char* outBase;
-    string startFile;
+    char* startFile;
     vector<int> numbers;
     vector<FILE*> files;
     void getdata();

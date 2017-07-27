@@ -1,27 +1,23 @@
 #include "fm.h"
-#include <fstream>
+#include <string.h>
+
+//#include <fstream>
 
 fm::fm()
 {
     numbers.clear();
     files.clear();
-    startFile.clear();
-    getdata();
+    //getdata();
+    char a[]="./data.txt";
+    startFile=(char*)malloc(sizeof(char)*11);
+    strcpy(startFile,a);
     start();
 }
 
 void fm::getdata()
 {
-    /*numbers.push_back(4);
-    numbers.push_back(5);
-    numbers.push_back(4);
-    numbers.push_back(-2);
-    numbers.push_back(9);*/
     char buf[80];
-    //string d;
     std::cin.getline(buf,80);
-    //std::cout<<buf<<std::endl;
-    //d=string(buf);
     int i;
     int j;
     int sign;
@@ -39,38 +35,39 @@ void fm::getdata()
             j=j*10+buf[i]-'0';
             i++;
         }
-        //int s=numbers.size();
         if(buf[i]==' '||buf[i]=='\0')
         {
             numbers.push_back(j*sign);
-
-            //printf("%d\n",numbers[s]);
             if(buf[i]=='\0')break;
         }
         else{
             int s=numbers.size()+1;
             printf("Error! Please, restart from number %d\n",s);
             getdata();
-            return ;
+            //return ;
         }
     }
-    //std::cin>>d;
-    //std::cout<<d<<std::endl;
-    //startFile=(char*)malloc(sizeof(char)*80);
-    char a[]="./data.txt";
-    startFile=string(a);
-    //std::cout<<startFile<<std::endl;
+
 }
 
 void fm::start()
 {
-
+    FILE* f=fopen(startFile,"rb");
+    if(f)
+    {
+        printf("Start File is opened\n");
+    }
+    else{
+            printf("File opening error!\n");
+        exit(2);
+    }
+    fclose(f);
 }
 
 fm::~fm()
 {
     free(outBase);
-    startFile.clear();
+    free(startFile);
     int s=files.size();
     int i;
     FILE*f;
