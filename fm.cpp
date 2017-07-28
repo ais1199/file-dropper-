@@ -6,9 +6,9 @@
 fm::fm()
 {
     numbers.clear();
-    files.clear();
-    //getdata();
-    char a[]="./data.txt";
+    //files.clear();
+    getdata();
+    char a[]="./data";
     startFile=(char*)malloc(sizeof(char)*11);
     strcpy(startFile,a);
     start();
@@ -53,6 +53,15 @@ void fm::getdata()
 void fm::start()
 {
     FILE* f=fopen(startFile,"rb");
+    int N=numbers.size();
+    int i;
+    char output[]="./out/";
+    files = new flist(output);
+    //flist*b;
+    for(i=0;i<N;i++)
+    {
+        files->addNewItem(numbers[i]);
+    }
     if(f)
     {
         printf("Start File is opened\n");
@@ -66,14 +75,6 @@ void fm::start()
 
 fm::~fm()
 {
-    free(outBase);
+    delete files;
     free(startFile);
-    int s=files.size();
-    int i;
-    FILE*f;
-    for(i=0;i<s;i++)
-    {
-        f=files[i];
-        fclose(f);
-    }
 }

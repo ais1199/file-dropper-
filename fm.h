@@ -4,10 +4,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
+#include "flist.h"
 //#include <cstring>
 //#include <cstdlib>
 //#include <cassert>
-
 
 using namespace std;
 using std::cout;
@@ -18,12 +18,12 @@ public:
     fm();
     ~fm();
 private:
-    char* outBase;
+    //char* outBase;
     char* startFile;
     vector<int> numbers;
-    vector<FILE*> files;
     void getdata();
     void start();
     FILE* data;
+    flist *files;
 };
 #endif // _FM_H_

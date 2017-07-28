@@ -1,13 +1,14 @@
 # depslib dependency file v1.0
-1501009303 source:c:\interesting\Си\file_maker\fm.cpp
+1501231782 source:c:\interesting\Си\file_maker\fm.cpp
 	"fm.h"
+	<string.h>
 
-1501143110 c:\interesting\Си\file_maker\fm.h
+1501230861 c:\interesting\Си\file_maker\fm.h
 	<iostream>
 	<stdio.h>
 	<stdlib.h>
 	<vector>
-	<string>
+	"flist.h"
 
 1501137592 source:c:\interesting\Си\file_maker\main.cpp
 	<iostream>
@@ -16,4 +17,13 @@
 	<vector>
 	<cassert>
 	"fm.h"
+
+1501231493 c:\interesting\Си\file_maker\flist.h
+	<vector>
+	<stdio.h>
+	<stdlib.h>
+
+1501231705 source:c:\interesting\Си\file_maker\flist.cpp
+	"flist.h"
+	<string.h>
 
