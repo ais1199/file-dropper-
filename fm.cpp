@@ -70,6 +70,26 @@ void fm::start()
             printf("File opening error!\n");
         exit(2);
     }
+    char buf;
+    char res=0x0;
+    int s=numbers.size();
+    i=0;
+    int j;
+    while(fread(&buf,1,1,f))
+    {
+        for(j=0;j<8;j++)
+        {
+            res=(buf>>j)&0x1;
+            if(!files->putbit(numbers[i],res))
+            {
+                printf("Writing error, sorry((\n");
+                exit(4);
+            }
+            i++;
+            if(i>=s)i=0;
+        }
+
+    }
     fclose(f);
 }
 

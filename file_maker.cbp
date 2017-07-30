@@ -32,6 +32,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="flist.cpp" />
+		<Unit filename="flist.h" />
+		<Unit filename="fm.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
